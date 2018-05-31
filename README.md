@@ -1,13 +1,13 @@
-# Project Name
+# RUinn - a hostelworld copycat
 
-> Project description
+> The overview section of a hostel listing on hostelworld.com
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/ruinn/Availability-Price
+  - https://github.com/ruinn/repo
+  - https://github.com/ruinn/repo
+  - https://github.com/ruinn/repo
 
 ## Table of Contents
 
