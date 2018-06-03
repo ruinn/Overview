@@ -24,3 +24,6 @@ coverage
 build/
 dist/
 
+# AWS Access Keys
+config.js
+
