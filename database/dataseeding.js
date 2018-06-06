@@ -14,15 +14,11 @@ const assignLocation = (locationIds, hostels) => {
 const saveLocations = async (locations) => {
   try {
     await models.Location.insertMany(locations);
-    const ids = await models.Location.find().distinct('_id');
-    await assignLocation(ids, hostelGenerator.newHostels);
-    models.Hostel.count((err, count) => {
-      if (count === 0) {
-        models.Hostel.insertMany(hostelGenerator.newHostels);
-      } else {
-        console.log(`Found ${count} hostel records`);
-      }
-    });
+    const findIdPromise = models.Location.find().distinct('_id');
+    const addPhotosPromise = hostelGenerator.addPhotos();
+    const [ids] = await Promise.all([findIdPromise, addPhotosPromise]);
+    assignLocation(ids, hostelGenerator.newHostels);
+    models.Hostel.insertMany(hostelGenerator.newHostels);
   } catch (error) {
     console.log('Unable to save locations: ', error);
   }
