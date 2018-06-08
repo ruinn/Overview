@@ -12,8 +12,13 @@ module.exports = {
         loader: 'babel-loader',
         query: { presets: ['react', 'es2015', 'env'] },
       },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
+  resolve: { extensions: ['*', '.js', '.jsx'] },
   output: {
     path: bundlePath,
     filename: 'bundle.js',
