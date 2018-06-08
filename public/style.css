@@ -1,0 +1,161 @@
+body {
+  font-family: "Noto", Helvetica, Arial, sans-serif;
+}
+
+#hostel-info {
+	background: linear-gradient(#f4f4f4,#fff);
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+h2 {
+  font-size: 1.2rem
+}
+
+a {
+  color: #ff6a3a;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.row {
+  border-bottom: 1px dotted #ccc;
+  max-width: 70rem;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.score {
+  background-color: #ff7346;
+}
+
+.keyword {
+  color: #ff7346;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2rem;
+}
+
+.rating-summary .score {
+  padding: .5rem;
+  font-size: 1.4rem;
+  text-align: center;
+  font-weight: 700;
+  border-radius: .188rem;
+  color: #fff;
+  /*float: left;*/
+  line-height: 1;
+  min-width: 3.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.4rem;
+}
+
+.rating-summary .info .counter {
+  font-size: .65rem;
+  display: inline-flex;
+  align-items: center;
+  margin-top: .25rem;
+}
+
+/*.rating-summary .score {
+    padding: .5rem;
+    background-color: #666;
+    font-size: 1.4rem;
+    text-align: center;
+    font-weight: 700;
+    border-radius: .188rem;
+    color: #fff;
+    float: left;
+    line-height: 1;
+    min-width: 3.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}*/
+
+.top-features {
+  padding: 1rem 0;
+  border-top: 1px dotted #ccc;
+  border-bottom: 1px dotted #ccc;
+  margin-top: 1rem;
+  margin-left: 0;
+}
+
+.rating {
+  padding-top: 1rem;
+}
+
+.badge {
+	width: 1.563rem;
+	height: 1.563rem;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.5rem;
+}
+
+.badge-red {
+  background: #fd5951;
+  color: #fff;
+}
+
+.badge-green {
+    background: #00c08a;
+    color: #fff;
+}
+
+.badge {
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.5rem;
+}
+
+
+

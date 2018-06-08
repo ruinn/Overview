@@ -24,6 +24,7 @@ coverage
 build/
 dist/
 
-# AWS Access Keys
-config.js
+# Webpack bundle
+bundle.js
+
 
