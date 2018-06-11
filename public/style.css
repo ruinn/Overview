@@ -2,90 +2,70 @@ body {
   font-family: "Noto", Helvetica, Arial, sans-serif;
 }
 
-#hostel-info {
-	background: linear-gradient(#f4f4f4,#fff);
-  padding-top: 1rem;
-  padding-bottom: 2rem;
-}
-
 h2 {
-  font-size: 1.2rem
+  font-size: 1.2rem;
+  line-height: 1.4;
 }
 
 a {
   color: #ff6a3a;
 }
 
-.container {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+img {
+	transition: opacity .2s ease-in-out;
 }
 
-@media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
+input {
+	width: 100%;
 }
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
+#search {
+	box-sizing: border-box;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background-color: #313131;
 }
 
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
+label {
+	color: #ccc;
+	font-weight: 700;
+	font-size: .65rem;
 }
 
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
+.search-btn {
+	background-color: #ff7346;
+	color: white;
+}
+
+#navbar {
+	box-sizing: border-box;
+	display: block;
+	color: #333;
+	font-weight: 400;
+  line-height: 1.5;
+}
+
+#hostel-info {
+	background: linear-gradient(#f4f4f4,#fff);
+  padding-top: 1rem;
+  padding-bottom: 2rem;
 }
 
 .row {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-}
-
-.row {
-  border-bottom: 1px dotted #ccc;
   max-width: 70rem;
   width: 100%;
   margin: 0 auto;
-  padding-bottom: 1rem;
   margin-bottom: 1rem;
-  margin-top: 1rem;
 }
 
 .score {
   background-color: #ff7346;
-}
-
-.keyword {
-  color: #ff7346;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.2rem;
-}
-
-.rating-summary .score {
   padding: .5rem;
   font-size: 1.4rem;
   text-align: center;
   font-weight: 700;
   border-radius: .188rem;
   color: #fff;
-  /*float: left;*/
   line-height: 1;
   min-width: 3.4rem;
   display: flex;
@@ -95,48 +75,51 @@ a {
 }
 
 .rating-summary .info .counter {
-  font-size: .65rem;
   display: inline-flex;
   align-items: center;
   margin-top: .25rem;
 }
 
-/*.rating-summary .score {
-    padding: .5rem;
-    background-color: #666;
-    font-size: 1.4rem;
-    text-align: center;
-    font-weight: 700;
-    border-radius: .188rem;
-    color: #fff;
-    float: left;
-    line-height: 1;
-    min-width: 3.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}*/
+.keyword {
+	box-sizing: border-box;
+	display: block;
+  color: #ff7346;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19.2px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
 
-.top-features {
-  padding: 1rem 0;
+.counter {
+	box-sizing: border-box;
+	font-size: .65rem;
+  cursor: pointer;
+}
+
+.total-reviews {
+	margin-left: .2rem;
+}
+
+.rating-factors {
+  padding: 0rem 0;
   border-top: 1px dotted #ccc;
   border-bottom: 1px dotted #ccc;
   margin-top: 1rem;
   margin-left: 0;
+  padding-bottom: 1rem;
 }
 
 .rating {
   padding-top: 1rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
 }
 
 .badge {
 	width: 1.563rem;
 	height: 1.563rem;
-	border-radius: 50%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 0.5rem;
 }
 
 .badge-red {
@@ -145,8 +128,13 @@ a {
 }
 
 .badge-green {
-    background: #00c08a;
-    color: #fff;
+  background: #00c08a;
+  color: #fff;
+}
+
+.badge-blue {
+  background: #00d4f9;
+  color: #fff;
 }
 
 .badge {
@@ -157,5 +145,88 @@ a {
 	padding: 0.5rem;
 }
 
+.top-features {
+	margin-left: .5rem;
+	font-size: .9rem;
+}
 
+.btn-link {
+	padding-left: 0px;
+  color: #ff7346;
+  text-decoration: none;
+  font-size: .8rem;
+}
 
+.gallery {
+	padding: .125rem;
+	padding-left: 15px;
+}
+
+@media (min-width: 768px) {
+  .col-md-1 {
+    -ms-flex: 0 0 8.333333%;
+    flex: 0 0 8.333333%;
+    max-width: 74.14px;
+  }
+}
+
+.img-fluid {
+	height: 50px;
+	width: 74.14px;
+	cursor: pointer;
+	padding: .125rem;
+}
+
+img {
+  transition: 0.5s ease;
+}
+
+.gallery-image:hover img {
+  opacity: 0.4;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,.9);
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.close {
+  color: #ccc;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+.photo-carousel {
+  height: 1000;
+}

@@ -1,7 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import Search from './Search';
 import Nav from './Nav';
 import Review from './Review';
+import Photos from './Photos';
+import PhotoModal from './PhotoModal';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,7 +13,12 @@ class App extends React.Component {
       hostel: {},
       locations: {},
       highlight: {},
+      lightbox: false,
+      currentSlide: '',
     };
+
+    this.toggleLightbox = this.toggleLightbox.bind(this);
+    this.updateCurrentSlide = this.updateCurrentSlide.bind(this);
   }
 
   componentDidMount() {
@@ -54,14 +62,25 @@ class App extends React.Component {
       });
   }
 
+  toggleLightbox() {
+    this.setState(prevState => (
+      { lightbox: !prevState.lightbox }
+    ));
+  }
+
+  updateCurrentSlide(slideUrl) {
+    this.setState({ currentSlide: slideUrl });
+  }
+
   render() {
     return (
       <div>
-        <section id="search">
-        Search Component
-        </section>
+        <div id="search">
+          <div className="container">
+            <Search />
+          </div>
+        </div>
         <Nav />
-        <hr />
         <section id="hostel-info">
           <div className="container">
             <div className="row">
@@ -76,7 +95,23 @@ class App extends React.Component {
             </div>
           </div>
         </section>
-        <div>Photo Component</div>
+        {
+          Object.keys(this.state.hostel).length > 0 &&
+          <Photos
+            urls={this.state.hostel.photos}
+            toggleLightbox={this.toggleLightbox}
+            updateCurrentSlide={this.updateCurrentSlide}
+          />
+        }
+        {
+          Object.keys(this.state.hostel).length > 0 &&
+          <PhotoModal
+            lightbox={this.state.lightbox}
+            toggleLightbox={this.toggleLightbox}
+            urls={this.state.hostel.photos}
+            currentSlide={this.state.currentSlide}
+          />
+        }
       </div>
     );
   }
