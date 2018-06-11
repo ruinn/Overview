@@ -31,24 +31,24 @@ const Review = props => (
       <div className="col-md-1 score">
         {props.highlight.rating}
       </div>
-      <div id="info" className="col-md-9">
+      <div className="col-md-9 info">
         <p className="keyword">{props.highlight.keyword}</p>
         <a className="counter" href="#">
           <i className="far fa-comment" />
-          <span>
+          <span className="total-reviews">
             {props.highlight.totalReviews} Total Reviews
           </span>
         </a>
       </div>
     </div>
-    <ul className="list-unstyled top-features">
+    <ul className="rating-factors">
       {
         props.highlight.topFeatures.map(topFeature => (
-          <li key={topFeature.order} className="clearfix rating">
+          <li key={topFeature.order} className="rating">
             <span className={getIconClassName(topFeature.feature)}>
               <i className={getIcon(topFeature.feature)} />
             </span>
-            <span>
+            <span className="top-features">
               {topFeature.ratingFactor} <b>{topFeature.feature}</b>
             </span>
           </li>
