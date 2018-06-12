@@ -8,6 +8,36 @@ class Search extends React.Component {
     };
   }
 
+  getCheckInDate() {
+    const today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1;
+
+    const yyyy = today.getFullYear();
+    if (dd < 10) {
+      dd = '0' + dd;
+    }
+    if (mm < 10) {
+      mm = '0' + mm;
+    }
+    return mm + '/' + dd + '/' + yyyy;
+  }
+
+  getCheckOutDate() {
+    const today = new Date();
+    let dd = today.getDate() + 1;
+    let mm = today.getMonth() + 1;
+
+    const yyyy = today.getFullYear();
+    if (dd < 10) {
+      dd = '0' + dd;
+    }
+    if (mm < 10) {
+      mm = '0' + mm;
+    }
+    return mm + '/' + dd + '/' + yyyy;
+  }
+
   render() {
     return (
       <div className="search-bar">
@@ -22,11 +52,11 @@ class Search extends React.Component {
             </div>
             <div className="form-group col-md-2">
               <label htmlFor="Check-in">CHECK-IN</label>
-              <input type="text" className="form-control" placeholder="Last name" />
+              <input type="text" className="form-control" placeholder={this.getCheckInDate()} />
             </div>
             <div className="form-group col-md-2">
               <label htmlFor="Check-out">CHECK-OUT</label>
-              <input type="text" className="form-control" placeholder="Last name" />
+              <input type="text" className="form-control" placeholder={this.getCheckOutDate()} />
             </div>
             <div className="form-group col-md-2">
               <label htmlFor="Check-out">GUESTS</label>
