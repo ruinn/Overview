@@ -43,6 +43,8 @@ class App extends React.Component {
             topFeatures: response.data.topFeatures,
           },
         });
+        console.log('hostel: ', this.state.hostel);
+        console.log('locations: ', this.state.locations);
       })
       .catch((error) => {
         console.log("Client couldn't get hostel info: ", error);
@@ -82,7 +84,11 @@ class App extends React.Component {
       <div>
         <div id="search">
           <div className="container">
-            <Search />
+            <Search
+              name={this.state.hostel.name}
+              location_id={this.state.hostel.location_id}
+              locations={this.state.locations}
+            />
           </div>
         </div>
         <Nav />
