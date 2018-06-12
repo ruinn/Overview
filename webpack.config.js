@@ -3,7 +3,7 @@ const path = require('path');
 const bundlePath = path.join(__dirname, 'public/');
 
 module.exports = {
-  entry: './client/index.jsx',
+  entry: ['./client/index.jsx', `${bundlePath}/style.scss`],
   module: {
     rules: [
       {
@@ -13,8 +13,8 @@ module.exports = {
         query: { presets: ['react', 'es2015', 'env'] },
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
