@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Photos = (props) => {
   const openModal = (slideIndex, url) => {
-    props.updateCurrentSlide(url);
+    props.updateCurrentSlide(slideIndex, url);
     props.toggleLightbox();
   };
 

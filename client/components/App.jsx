@@ -14,7 +14,7 @@ class App extends React.Component {
       locations: {},
       highlight: {},
       lightbox: false,
-      currentSlide: '',
+      currentSlide: {},
     };
 
     this.toggleLightbox = this.toggleLightbox.bind(this);
@@ -30,7 +30,7 @@ class App extends React.Component {
 
   getHostel() {
     axios({
-      url: `/api/hostels/${this.state.hostel._id}/info`,
+      url: `http://localhost:3002/api/hostels/${this.state.hostel._id}/info`,
       method: 'GET',
     })
       .then((response) => {
@@ -51,7 +51,7 @@ class App extends React.Component {
 
   getLocations() {
     axios({
-      url: '/api/hostels',
+      url: 'http://localhost:3002/api/hostels',
       method: 'GET',
     })
       .then((response) => {
@@ -68,8 +68,13 @@ class App extends React.Component {
     ));
   }
 
-  updateCurrentSlide(slideUrl) {
-    this.setState({ currentSlide: slideUrl });
+  updateCurrentSlide(slideIndex, slideUrl) {
+    this.setState({
+      currentSlide: {
+        slideIndex,
+        slideUrl,
+      },
+    });
   }
 
   render() {

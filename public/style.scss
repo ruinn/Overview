@@ -24,17 +24,21 @@
     padding-top: 16px;
     padding-bottom: 16px;
     background-color: #313131;
-  }
-
+  
   label {
     color: #ccc;
     font-weight: 700;
     font-size: 0.65rem;
   }
 
+  .search {
+    align-items: center;
+  }
+
   .search-btn {
     background-color: #ff7346;
     color: white;
+    align-items: flex-start;
   }
 
   #navbar {
