@@ -25,6 +25,6 @@ build/
 dist/
 
 # Webpack bundle
-bundle.js
+public/bundle.js
 
 
