@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import $ from 'jquery';
 
 const PhotoCarousel = (props) => {
   const getClassName = (url, i) => {
@@ -12,10 +11,6 @@ const PhotoCarousel = (props) => {
     }
     return className;
   };
-
-  // const handlePrevClick = () => {
-  //   $('.carousel').carousel('prev');
-  // };
 
   return (
     <div className="container">
@@ -49,8 +44,8 @@ const PhotoCarousel = (props) => {
 PhotoCarousel.propTypes = {
   urls: PropTypes.arrayOf(PropTypes.string).isRequired,
   currentSlide: PropTypes.shape({
-    slideIndex: PropTypes.number.isRequired,
-    slideUrl: PropTypes.string.isRequired,
+    slideIndex: PropTypes.number,
+    slideUrl: PropTypes.string,
   }).isRequired,
 };
 

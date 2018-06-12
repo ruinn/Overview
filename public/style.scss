@@ -1,4 +1,4 @@
-#overview {
+#Overview {
   
   h2 {
     font-family: "Noto", Helvetica, Arial, sans-serif;
@@ -20,10 +20,8 @@
 
   #search {
     font-family: "Noto", Helvetica, Arial, sans-serif;
-    box-sizing: border-box;
-    padding-top: 16px;
-    padding-bottom: 16px;
     background-color: #313131;
+  }
   
   label {
     color: #ccc;
@@ -39,21 +37,36 @@
     background-color: #ff7346;
     color: white;
     align-items: flex-start;
+    margin-top: 29px;
   }
 
-  #navbar {
-    box-sizing: border-box;
-    display: block;
-    color: #333;
-    font-weight: 400;
-    line-height: 1.5;
+  .nav {
+    padding: 1rem;
+    border-bottom: 1px solid #e4e4e4;
+  }
+
+  .nav-item {
+    padding-right: 1rem;
+    margin-right: 1rem;
+    border-right: 1px solid #e4e4e4; 
+  }
+
+  .nav-link {
+    padding: 0px;
+  }
+
+  a.nav-link {
+    color: #444;
+  }
+
+  a.nav-link.active {
+    border-bottom: 3px solid #444;
   }
 
   #hostel-info {
     font-family: "Noto", Helvetica, Arial, sans-serif;
     background: linear-gradient(#f4f4f4, #fff);
     padding-top: 1rem;
-    padding-bottom: 2rem;
   }
 
   .row {
@@ -162,6 +175,10 @@
     font-size: 0.8rem;
   }
 
+  #photo-gallery {
+    padding-bottom: 2rem;
+  }
+
   .gallery {
     padding: 0.125rem;
     padding-left: 15px;
@@ -232,7 +249,18 @@
     display: none;
   }
 
-  .photo-carousel {
-    height: 1000;
+  .search-bar {
+    padding: 1rem;
+  }
+
+  .location {
+    position: relative;
+  }
+
+  .location .fa-crosshairs {
+    position: absolute;
+    padding: 10px;
+    right: 8px;
+    top: 2px;
   }
 }
