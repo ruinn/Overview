@@ -1,29 +1,29 @@
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
 import { configure, shallow, mount, render } from 'enzyme';
-import App from '../../../client/components/App';
+import Review from '../../../client/components/Review';
 
 configure({ adapter: new Adapter() });
 
-describe('App component', () => {
-  let mountedApp;
-  const app = () => {
-    if (!mountedApp) {
-      mountedApp = mount(<App />);
+describe('Review component', () => {
+  let mountedReview;
+  const review = () => {
+    if (!mountedReview) {
+      mountedReview = mount(<Review />);
     }
-    return mountedApp;
+    return mountedReview;
   };
 
   beforeEach(() => {
-    mountedApp = undefined;
+    mountedReview = undefined;
   });
 
   it('should always render a div', () => {
-    const divs = app().find('div');
+    const divs = review().find('div');
     expect(divs.length).toBeGreaterThan(0);
   });
 
   it('should render without crashing', () => {
-    shallow(<App />);
+    shallow(<Review />);
   });
 });
