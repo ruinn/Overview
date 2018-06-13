@@ -32,4 +32,16 @@ describe('Nav component', () => {
     const overview = <a className="nav-link active" href="#">Overview</a>;
     expect(wrapper.contains(overview)).toEqual(true);
   });
+
+  it('renders Prices nav item', () => {
+    const wrapper = shallow(<Nav />);
+    const prices = <a className="nav-link" href="#">Prices</a>;
+    expect(wrapper.contains(prices)).toEqual(true);
+  });
+
+  it('renders Reviews nav item', () => {
+    const wrapper = shallow(<Nav />);
+    const reviews = <a className="nav-link" href="#">Reviews</a>;
+    expect(wrapper.contains(reviews)).toEqual(true);
+  });
 });
