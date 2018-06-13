@@ -105,7 +105,13 @@ app.get('/api/hostels/:id/info', async (req, res) => {
       totalReviews = hostel.reviews.length;
       topFeatures = generateTopFeatures(hostel.reviews);
     } else {
-      hostel = await db.Hostel.findById(req.params.id);
+      hostel = await db.Hostel.find({
+        location_id: req.params.id,
+      });
+      const min = 0;
+      const max = hostel.length - 1;
+      const i = Math.floor((Math.random() * ((max - min) + 1)) + min);
+      hostel = hostel[i];
       rating = getAvgRating(hostel.reviews);
       keyword = getKeyword(rating);
       totalReviews = hostel.reviews.length;
