@@ -94,6 +94,7 @@ class Search extends React.Component {
     event.preventDefault();
     const locationId = this.findLocationId(this.state.value);
     this.state.value = '';
+    this.state.clicked = false;
     this.props.getHostel(locationId);
   }
 
