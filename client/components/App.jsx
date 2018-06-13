@@ -11,26 +11,27 @@ class App extends React.Component {
     super(props);
     this.state = {
       hostel: {},
-      locations: {},
+      locations: [],
       highlight: {},
       lightbox: false,
       currentSlide: {},
     };
 
+    this.getHostel = this.getHostel.bind(this);
     this.toggleLightbox = this.toggleLightbox.bind(this);
     this.updateCurrentSlide = this.updateCurrentSlide.bind(this);
   }
 
   componentDidMount() {
-    if (Object.keys(this.state.locations).length === 0) {
+    if (this.state.locations.length === 0) {
       this.getLocations();
     }
     this.getHostel();
   }
 
-  getHostel() {
+  getHostel(locationId) {
     axios({
-      url: `http://localhost:3002/api/hostels/${this.state.hostel._id}/info`,
+      url: `http://localhost:3002/api/hostels/${locationId}/info`,
       method: 'GET',
     })
       .then((response) => {
@@ -43,8 +44,6 @@ class App extends React.Component {
             topFeatures: response.data.topFeatures,
           },
         });
-        console.log('hostel: ', this.state.hostel);
-        console.log('locations: ', this.state.locations);
       })
       .catch((error) => {
         console.log("Client couldn't get hostel info: ", error);
@@ -57,7 +56,9 @@ class App extends React.Component {
       method: 'GET',
     })
       .then((response) => {
-        this.state.locations = response.data;
+        this.setState({
+          locations: response.data,
+        });
       })
       .catch((error) => {
         console.log("Client couldn't get locations: ", error);
@@ -88,6 +89,7 @@ class App extends React.Component {
               name={this.state.hostel.name}
               location_id={this.state.hostel.location_id}
               locations={this.state.locations}
+              getHostel={this.getHostel}
             />
           </div>
         </div>

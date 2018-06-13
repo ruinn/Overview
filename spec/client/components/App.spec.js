@@ -10,6 +10,7 @@ describe('App component', () => {
   const app = () => {
     if (!mountedApp) {
       mountedApp = mount(<App />);
+      console.log(mountedApp.debug());
     }
     return mountedApp;
   };
@@ -23,8 +24,8 @@ describe('App component', () => {
     expect(divs.length).toBeGreaterThan(0);
   });
 
-  // it('should mount in a full DOM', () => {
-  //   expect(mount(<App />).find('.app').length).toBe(1);
-  // });
+  it('should always render a `Nav` bar', () => {
+    expect(app().find(Nav).length).toBe(1);
+  });
 
 });
