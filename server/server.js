@@ -11,6 +11,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static('public'));
+app.use('/:id', express.static('public'));
 
 const getAvgRating = ((reviews) => {
   const sum = reviews.reduce((acc, review) => (
@@ -91,6 +92,38 @@ const generateTopFeatures = ((reviews) => {
   return sortTopFeatures(topFeaturesWithKeywords);
 });
 
+app.get('/api/hostels/:id', async (req, res) => {
+  try {
+    const searchId = Number(req.params.id);
+    const hostel = await db.Hostel.findOne({
+      id: searchId,
+    });
+    const rating = getAvgRating(hostel.reviews);
+    const keyword = getKeyword(rating);
+    const totalReviews = hostel.reviews.length;
+    const topFeatures = generateTopFeatures(hostel.reviews);
+    hostel.reviews = undefined;
+    res.send({
+      hostel,
+      rating,
+      keyword,
+      totalReviews,
+      topFeatures,
+    });
+  } catch (error) {
+    res.status(404).send(`ERROR: ${error}`);
+  }
+});
+
+app.get('/api/hostels', async (req, res) => {
+  try {
+    const locations = await db.Location.find();
+    res.send(locations);
+  } catch (error) {
+    res.status(404).send(`ERROR: ${error}`);
+  }
+});
+
 app.get('/api/hostels/:id/info', async (req, res) => {
   try {
     let hostel;
@@ -125,15 +158,6 @@ app.get('/api/hostels/:id/info', async (req, res) => {
       totalReviews,
       topFeatures,
     });
-  } catch (error) {
-    res.status(404).send(`ERROR: ${error}`);
-  }
-});
-
-app.get('/api/hostels', async (req, res) => {
-  try {
-    const locations = await db.Location.find();
-    res.send(locations);
   } catch (error) {
     res.status(404).send(`ERROR: ${error}`);
   }
