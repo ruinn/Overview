@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/ruinn');
 
 const hostelSchema = mongoose.Schema({
+  id: Number,
   name: String,
   description: String,
   photos: Object,

@@ -17,7 +17,7 @@ class App extends React.Component {
       currentSlide: {},
     };
 
-    this.getHostel = this.getHostel.bind(this);
+    this.searchForHostel = this.searchForHostel.bind(this);
     this.toggleLightbox = this.toggleLightbox.bind(this);
     this.updateCurrentSlide = this.updateCurrentSlide.bind(this);
   }
@@ -26,12 +26,17 @@ class App extends React.Component {
     if (this.state.locations.length === 0) {
       this.getLocations();
     }
-    this.getHostel();
+    const path = window.location.pathname;
+    let id = path.split('/')[1];
+    if (!id) {
+      id = 1;
+    }
+    this.getHostel(id);
   }
 
-  getHostel(locationId) {
+  getHostel(id) {
     axios({
-      url: `http://localhost:3002/api/hostels/${locationId}/info`,
+      url: `http://localhost:3002/api/hostels/${id}`,
       method: 'GET',
     })
       .then((response) => {
@@ -65,6 +70,27 @@ class App extends React.Component {
       });
   }
 
+  searchForHostel(locationId) {
+    axios({
+      url: `http://localhost:3002/api/hostels/${locationId}/info`,
+      method: 'GET',
+    })
+      .then((response) => {
+        this.setState({
+          hostel: response.data.hostel,
+          highlight: {
+            rating: response.data.rating,
+            keyword: response.data.keyword,
+            totalReviews: response.data.totalReviews,
+            topFeatures: response.data.topFeatures,
+          },
+        });
+      })
+      .catch((error) => {
+        console.log("Client couldn't get hostel info: ", error);
+      });
+  }
+
   toggleLightbox() {
     this.setState(prevState => (
       { lightbox: !prevState.lightbox }
@@ -89,7 +115,7 @@ class App extends React.Component {
               name={this.state.hostel.name}
               location_id={this.state.hostel.location_id}
               locations={this.state.locations}
-              getHostel={this.getHostel}
+              getHostel={this.searchForHostel}
             />
           </div>
         </div>

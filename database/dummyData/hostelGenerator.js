@@ -1,7 +1,10 @@
 const axios = require('axios');
 const newHostels = require('./hostelDummyData.js');
 
+let id = 1;
 newHostels.forEach((info) => {
+  info.id = id;
+  id += 1;
   info.reviews.forEach((review) => {
     if (review.rating === 10) {
       review.topFeature = 'Cleanliness';
