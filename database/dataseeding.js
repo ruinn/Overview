@@ -31,3 +31,8 @@ models.Location.count((err, count) => {
     console.log(`Found ${count} location records`);
   }
 });
+
+module.exports = {
+  assignLocation,
+  saveLocations,
+};
