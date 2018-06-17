@@ -36,7 +36,7 @@ class App extends React.Component {
 
   getHostel(id) {
     axios({
-      url: `http://localhost:3002/api/hostels/${id}`,
+      url: `/api/overview/${id}`,
       method: 'GET',
     })
       .then((response) => {
@@ -57,7 +57,7 @@ class App extends React.Component {
 
   getLocations() {
     axios({
-      url: 'http://localhost:3002/api/hostels',
+      url: '/api/hostels',
       method: 'GET',
     })
       .then((response) => {
@@ -72,7 +72,7 @@ class App extends React.Component {
 
   searchForHostel(locationId) {
     axios({
-      url: `http://localhost:3002/api/hostels/${locationId}/info`,
+      url: `/api/hostels/${locationId}/info`,
       method: 'GET',
     })
       .then((response) => {

@@ -2,6 +2,11 @@ const hostelGenerator = require('./dummyData/hostelGenerator.js');
 const newLocations = require('./dummyData/locationDummyData.js');
 const models = require('./index.js');
 
+(async () => {
+  await models.Location.remove({});
+  await models.Hostel.remove({});
+})();
+
 const assignLocation = (locationIds, hostels) => {
   const min = 0;
   const max = locationIds.length;

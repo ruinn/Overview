@@ -2,7 +2,7 @@ const express = require('express');
 const db = require('../database/index.js');
 
 const app = express();
-const port = 3002;
+const port = process.env.PORT || 3002;
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -92,7 +92,7 @@ const generateTopFeatures = ((reviews) => {
   return sortTopFeatures(topFeaturesWithKeywords);
 });
 
-app.get('/api/hostels/:id', async (req, res) => {
+app.get('/api/overview/:id', async (req, res) => {
   try {
     const searchId = Number(req.params.id);
     const hostel = await db.Hostel.findOne({
@@ -166,3 +166,4 @@ app.get('/api/hostels/:id/info', async (req, res) => {
 app.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`);
 });
+
