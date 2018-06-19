@@ -8,7 +8,7 @@ const Photos = (props) => {
   };
 
   return (
-    <section id="photo-gallery" className="container">
+    <section id="photo-gallery" className="container d-none d-sm-block">
       <div className="row no-gutters gallery">
         {
           props.urls.map((url, i) => (

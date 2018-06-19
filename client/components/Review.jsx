@@ -28,10 +28,10 @@ const getIconClassName = (feature) => {
 const Review = props => (
   <div className="col-md-3">
     <div className="row rating-summary">
-      <div className="col-md-1 score">
+      <div className="btn score">
         {props.highlight.rating}
       </div>
-      <div className="col-md-9 info">
+      <div className="info ml-3">
         <p className="keyword">{props.highlight.keyword}</p>
         <a className="counter" href="#">
           <i className="far fa-comment" />
@@ -55,7 +55,8 @@ const Review = props => (
         ))
       }
     </ul>
-    <button type="button" className="btn btn-link">Read all reviews</button>
+    {/* hidden on xs screen */}
+    <button type="button" className="btn btn-link d-none d-sm-block">Read all reviews</button>
   </div>
 );
 

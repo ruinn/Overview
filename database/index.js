@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://mongo/ruinn');
+mongoose.connect('mongodb://admin:pass1234@ds163650.mlab.com:63650/ruinn-overview');
 
 const hostelSchema = mongoose.Schema({
   id: Number,
