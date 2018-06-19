@@ -110,7 +110,7 @@ class App extends React.Component {
     return (
       <div>
         <div id="search">
-          <div className="container">
+          <div className="container d-none d-sm-block"> {/* hidden on xs screen */}
             <Search
               name={this.state.hostel.name}
               location_id={this.state.hostel.location_id}
@@ -128,7 +128,7 @@ class App extends React.Component {
                 <Review highlight={this.state.highlight} />
               }
               <div className="col-md-9">
-                <h4>Property Description</h4>
+                <h4 className="d-none d-sm-block">Property Description</h4> {/* hidden on xs screen */}
                 <p>{this.state.hostel.description}</p>
               </div>
             </div>
